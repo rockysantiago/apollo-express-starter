@@ -1,0 +1,42 @@
+{
+  "name": "express-starter",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "backpack",
+    "build": "backpack build",
+    "serve": "node ./build/main.js",
+    "test": "jest",
+    "test:e2e": "jest -c test/jest-e2e.json",
+    "cover": "jest --coverage"
+  },
+  "dependencies": {
+    "backpack-core": "^0.8.4",
+    "compression": "^1.7.4",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "helmet": "^3.20.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "babel-jest": "^24.8.0",
+    "eslint": "^6.1.0",
+    "husky": ">=1",
+    "jest": "^24.8.0",
+    "lint-staged": ">=8",
+    "prettier": "^1.18.2",
+    "supertest": "^4.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
