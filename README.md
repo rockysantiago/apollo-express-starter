@@ -4,7 +4,7 @@
 
 ```
 > git clone https://github.com/rockysantiago/apollo-express-starter.git
-> cd express-starter
+> cd apollo-express-starter
 > yarn
 > yarn dev
 ```
