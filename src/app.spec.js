@@ -1,11 +1,16 @@
 import request from 'supertest';
 import app from './app';
 
-describe('GET /', () => {
-  it('should successfully return "Hello World!"', async () => {
-    const response = await request(app).get('/');
+describe('GraphQL /api', () => {
+  it('should successfully return "Cardo Dalisay"', async () => {
+    const response = await request(app)
+      .post('/api')
+      .send({ query: '{me {username}}' });
 
     expect(response.status).toBe(200);
-    expect(response.text).toBe('Hello World!');
+
+    const { me } = response.body.data;
+
+    expect(me.username).toBe('Cardo Dalisay');
   });
 });
